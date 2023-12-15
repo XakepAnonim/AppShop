@@ -10,6 +10,16 @@ class ProductCreate(BaseModel):
     variety: str
     manufacturer: str
     description: str
-    price: float
-    quantity: str
+    price: str
+    stock: int
     date: datetime
+
+
+class ProductUpdate(BaseModel):
+    name: str
+    type: str
+    variety: str
+    manufacturer: str
+    description: str
+    price: str
+    stock: int
