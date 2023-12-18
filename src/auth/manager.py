@@ -32,7 +32,7 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
             user (User): Зарегистрированный пользователь.
             request (Optional[Request], optional): Объект запроса. Defaults to None.
         """
-        print(f"User {user.id} has registered.")
+        print(f"Пользователь {user.id} зарегистрирован.")
 
     async def create(
         self,
