@@ -117,17 +117,19 @@ async def notify_product(product_id: int, session: AsyncSession = Depends(get_as
     result_status = await session.execute(query_status)
     product_status = result_status.first()
 
-    if product_status.status == 'Delivered':
-        raise HTTPException(status_code=400, detail="Доставлено в пункт выдачи")
-    if product_status.status == 'Shipped':
-        raise HTTPException(status_code=400, detail="Товар в пути")
-    if product_status.status == 'In Progress':
-        raise HTTPException(status_code=400, detail="Товар в процессе сборки")
-    if not nof_product:
-        raise HTTPException(status_code=404, detail="Товар не найден")
-    if nof_product.stock < 0:
-        raise HTTPException(status_code=400, detail="Товар недоступен")
-    if nof_product.stock == 0:
-        raise HTTPException(status_code=400, detail="Товар недоступен")
-    if nof_product.stock:
-        raise HTTPException(status_code=400, detail="Товар уже доступен в наличии")
+    if product_status:
+        if product_status.status == 'Delivered':
+            raise HTTPException(status_code=400, detail="Доставлено в пункт выдачи")
+        elif product_status.status == 'Shipped':
+            raise HTTPException(status_code=400, detail="Товар в пути")
+        elif product_status.status == 'In Progress':
+            raise HTTPException(status_code=400, detail="Товар в процессе сборки")
+    else:
+        if not nof_product:
+            raise HTTPException(status_code=404, detail="Товар не найден")
+        elif nof_product.stock < 0:
+            raise HTTPException(status_code=400, detail="Товар недоступен")
+        elif nof_product.stock == 0:
+            raise HTTPException(status_code=400, detail="Товар недоступен")
+        elif nof_product.stock:
+            raise HTTPException(status_code=400, detail="Товар уже доступен в наличии")
