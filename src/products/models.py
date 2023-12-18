@@ -17,6 +17,7 @@ product = Table(
     Column("price", String, nullable=True),
     Column("stock", Integer, nullable=True),
     Column("date", TIMESTAMP),
+    Column("photo", String, nullable=True),
 )
 
 
@@ -32,5 +33,7 @@ class Product(Base):
     price = Column(String)
     stock = Column(Integer)
     date = Column(Date)
+    photo = Column(String, nullable=True, default='media/products/img123.png')
 
     cart_items = relationship("CartItem", back_populates="product")
+    orders = relationship("Order", back_populates="product")

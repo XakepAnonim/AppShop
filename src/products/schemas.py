@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -13,6 +14,7 @@ class ProductCreate(BaseModel):
     price: str
     stock: int
     date: datetime
+    photo: Optional[str]
 
 
 class ProductUpdate(BaseModel):
