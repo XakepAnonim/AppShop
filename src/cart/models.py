@@ -17,7 +17,7 @@ cart = Table(
 
 class CartItem(Base):
     __tablename__ = "cart_item"
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     product_id = Column(Integer, ForeignKey("product.id"))
     quantity = Column(Integer)
 

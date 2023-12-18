@@ -13,5 +13,6 @@ class Cart(BaseModel):
 
 
 class CartItemCreate(BaseModel):
+    id: int
     product_id: int
     quantity: int
