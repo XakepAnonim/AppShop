@@ -15,7 +15,7 @@ router = APIRouter(
 
 
 @router.get("")
-async def get_all_products(session: AsyncSession = Depends(get_async_session)):
+async def get_all_orders(session: AsyncSession = Depends(get_async_session)):
     query = select(order)
     result = await session.execute(query)
     orders = [row._asdict() for row in result.all()]

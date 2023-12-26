@@ -1,0 +1,106 @@
+.container{
+    margin: 0 -15px; /* Компенсация внутреннего отступа */
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.cart-wrapper {
+    display: flex;
+    flex-direction: column; /* Устанавливаем направление колонок */
+}
+
+.cart-card {
+    position: relative; /* добавляем это свойство */
+    width: 100%; /* Ширина занимает всю доступную ширину */
+    margin-bottom: 60px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box; /* Учитываем padding и border в общей ширине элемента */
+}
+
+.cart-card .buttons {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: bottom 0.3s;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.cart-card:hover .buttons {
+    bottom: 0;
+    visibility: visible;
+    opacity: 1;
+}
+
+.cart-card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.cart-card p {
+    margin-bottom: 10px;
+}
+
+.cart-card p:last-child {
+    font-weight: bold;
+}
+
+.cart-info {
+    margin-top: 10px;
+}
+
+/* Добавленные стили для кнопок */
+.buttons {
+    position: absolute;
+    bottom: -60px; /* Скрытие блока за пределами карточки */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный фон */
+    border-radius: 10px; /* Закругление углов */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    transition: bottom 0.3s; /* Анимация при изменении положения */
+    visibility: hidden; /* Скрываем блок по умолчанию */
+    opacity: 0; /* Прозрачность по умолчанию */
+}
+
+.buy-now {
+    /* Стили для кнопки "Купить" */
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 1px solid #FFD700; /* Желтая рамка */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #FFFFE0; /* Светло-желтый цвет фона */
+    color: #333; /* Цвет текста */
+}
+
+.buy-now:hover {
+    background-color: #f0f0f0; /* Изменение цвета при наведении на кнопку "В корзину" */
+}
+
+/* Добавленные стили для изображения товара */
+.product-image {
+    width: 100%;
+    max-height: 200px; /* Вы можете изменить высоту по своему усмотрению */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* Округление углов верхнего края изображения */
+    margin-bottom: 15px;
+}

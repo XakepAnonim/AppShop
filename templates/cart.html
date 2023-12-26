@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="/static/css/cart.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cart-wrapper">
+            {% for cart in carts %}
+                {% for product in products %}
+                    {% for user in users %}
+                        {% if product.id == cart.product_id and user.id == cart.user_id %}
+                            <div class="cart-card">
+                                <h3 class="cart-title">{{ product.name }}</h3>
+                                <div class="cart-info">
+                                    <p>{{ product.description }}</p>
+                                    <p>{{ product.price }}₽</p>
+                                </div>
+                                - Количество: {{ cart.quantity }}
+                                <div class="buttons">
+                                    <button class="buy-now"><a href="/buy">Купить</a></button>
+                                </div>
+                            </div>
+                            {% set items_found = true %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="/static/js/cart.js"></script>
+
+</body>
+</html>

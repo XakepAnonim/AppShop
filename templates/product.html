@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fds</title>
+</head>
+<body>
+    {% for product in products %}
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}₽</p>
+    {% endfor %}
+</body>
+</html>

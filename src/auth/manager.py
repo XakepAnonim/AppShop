@@ -73,13 +73,4 @@ class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
 
 
 async def get_user_manager(user_db=Depends(get_user_db)):
-    """
-    Возвращает экземпляр класса UserManager для управления пользователями.
-
-    Args:
-        user_db (Depends): Зависимость для получения базы данных пользователей.
-
-    Yields:
-        UserManager: Экземпляр класса UserManager.
-    """
     yield UserManager(user_db)

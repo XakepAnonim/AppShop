@@ -24,6 +24,5 @@ class Order(Base):
     product_id = Column(Integer, ForeignKey("product.id"))
     status = Column(Enum("In Progress", "Shipped", "Delivered", name="order_status_enum"), default="In Progress")
 
-    product = relationship("Product", back_populates="orders")
     user = relationship("User", back_populates="orders")
-
+    product = relationship("Product", back_populates="orders")

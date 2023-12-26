@@ -23,26 +23,6 @@ user = Table(  # Императивный метов запроса SqlAlchemy
 
 
 class User(SQLAlchemyBaseUserTable[int], Base):
-    """
-    Декларативный метод запроса SqlAlchemy
-    #
-    Класс User представляет модель пользователя в базе данных.
-
-    Args:
-        SQLAlchemyBaseUserTable: Базовая таблица пользователей для SQLAlchemy.
-        Base: Базовый класс модели базы данных.
-
-    Attributes:
-        Column - Колонка
-        id (Column): Идентификатора пользователя.
-        email (Column): Электронная почта пользователя.
-        username (Column): Имя пользователя.
-        registered_at (Column): Даты и время регистрации пользователя.
-        hashed_password (Column): Хешированный пароль пользователя.
-        is_active (Column): Флаг активности пользователя.
-        is_superuser (Column): Флаг суперпользователя.
-        is_verified (Column): Флаг подтверждения пользователя.
-    """
     id = Column(Integer, primary_key=True)
     email = Column(String, nullable=False)
     username = Column(String, nullable=False)
@@ -52,4 +32,5 @@ class User(SQLAlchemyBaseUserTable[int], Base):
     is_superuser: bool = Column(Boolean, default=False, nullable=False)
     is_verified: bool = Column(Boolean, default=False, nullable=False)
 
+    cart_items = relationship("CartItem", back_populates="user")
     orders = relationship("Order", back_populates="user")

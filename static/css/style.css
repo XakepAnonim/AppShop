@@ -1,0 +1,121 @@
+.container{
+    margin: 0 -15px; /* Компенсация внутреннего отступа */
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Добавленные стили для карточек */
+.product-card {
+    position: relative;
+    width: 300px;
+    margin-bottom: 20px; /* Отступ между карточками товаров */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px 15px;flex: 0 0 calc(33.3333% - 30px); /* Распределение карточек в три колонки с учетом отступов */
+    margin: 0 15px 30px; /* Отступ между карточками и их контейнером */
+}
+
+.product-card:hover .buttons {
+    bottom: 0; /* Показываем блок с кнопками при наведении на карточку товара */
+    visibility: visible; /* Делаем блок видимым */
+    opacity: 1; /* Делаем блок непрозрачным */
+}
+
+.product-card h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.product-card p {
+    margin-bottom: 10px;
+}
+
+.product-card p:last-child {
+    font-weight: bold;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+/* Добавленные стили для кнопок */
+.buttons {
+    position: absolute;
+    bottom: -60px; /* Скрытие блока за пределами карточки */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Прозрачный фон */
+    border-radius: 10px; /* Закругление углов */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Тень */
+    transition: bottom 0.3s; /* Анимация при изменении положения */
+    visibility: hidden; /* Скрываем блок по умолчанию */
+    opacity: 0; /* Прозрачность по умолчанию */
+}
+
+.add-to-cart {
+    /* Стили для кнопки "В корзину" */
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 1px solid #4CAF50; /* Зеленая рамка */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #4CAF50; /* Зеленый цвет фона */
+    color: #fff; /* Белый цвет текста */
+}
+
+.details {
+    /* Стили для кнопки "Купить" */
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 1px solid #FFD700; /* Желтая рамка */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #FFFFE0; /* Светло-желтый цвет фона */
+    color: #333; /* Цвет текста */
+}
+
+.add-to-cart:hover,
+.details:hover {
+    background-color: #367C39; /* Изменение цвета при наведении на кнопку "В корзину" */
+}
+
+.add-to-cart,
+.details {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover,
+.details:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Добавленные стили для изображения товара */
+.product-image {
+    width: 100%;
+    max-height: 200px; /* Вы можете изменить высоту по своему усмотрению */
+    object-fit: cover;
+    border-radius: 8px 8px 0 0; /* Округление углов верхнего края изображения */
+    margin-bottom: 15px;
+}

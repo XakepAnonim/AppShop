@@ -12,8 +12,5 @@ async def get_user_db(session: AsyncSession = Depends(get_async_session)):
 
     Args:
         session (AsyncSession, optional): Асинхронная сессия SQLAlchemy. Defaults to Depends(get_async_session).
-
-    Yields:
-        SQLAlchemyUserDatabase: Экземпляр класса SQLAlchemyUserDatabase.
     """
     yield SQLAlchemyUserDatabase(session, User)

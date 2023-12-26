@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AppShop</title>
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            {% for product in products %}
+            <div class="product-card" onmouseover="showButtons(this)" onmouseleave="hideButtons(this)">
+                <img src="{{ product.photo }}" alt="{{ product.name }}" class="product-image">
+                <h3 class="product-title">{{ product.name }}</h3>
+                <div class="product-info">
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.price }}₽</p>
+                </div>
+                <div class="buttons">
+                    <button class="details"><a href="/{{ product.id }}">Детали</a></button>
+                    <button class="add-to-cart"><a href="/cart">В корзину</a></button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+
+</body>
+</html>

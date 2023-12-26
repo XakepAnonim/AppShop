@@ -76,16 +76,10 @@ async def update_product(product_id: int, updated_product: ProductUpdate,
     if not existing_product:
         raise HTTPException(status_code=404, detail="Продукт не найден")
 
-    # Создаем новый объект Product с обновленными атрибутами
     updated_product_data = updated_product.dict()
     updated_product_obj = Product(**updated_product_data)
 
-    # Обновляем запись в базе данных
-    query = (
-        update(product)
-        .where(product.c.id == product_id)
-        .values(**updated_product_data)
-    )
+    query = (update(product).where(product.c.id == product_id).values(**updated_product_data))
     await session.execute(query)
     await session.commit()
 
